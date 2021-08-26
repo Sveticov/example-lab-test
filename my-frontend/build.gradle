@@ -1,0 +1,23 @@
+import org.gradle.api.JavaVersion
+
+plugins{
+  id 'java'
+  id("com.github.node-gradle.node") version("2.2.0")
+}
+
+java{
+  sourceCompatibility = JavaVersion.VERSION_1_8
+  targetCompatibility = JavaVersion.VERSION_1_8
+}
+
+node {
+  version = '12.18.3'
+  npmVersion = '6.14.6'
+  download = true
+}
+
+jar.dependsOn 'npm_run_build'
+
+jar {
+  from 'dist/my-frontend' into 'static'
+}

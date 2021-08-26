@@ -1,0 +1,4 @@
+rootProject.name = 'example-lab-test'
+
+include("my-server","my-frontend")
+
