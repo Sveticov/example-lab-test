@@ -16,7 +16,7 @@ repositories {
 }
 
 dependencies {
-    implementation(project(":my-frontend"))
+   // implementation(project(":my-frontend"))
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("org.jetbrains.kotlin:kotlin-reflect")

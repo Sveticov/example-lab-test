@@ -1,5 +1,41 @@
+<!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
 <p>general-page works!</p>
 
 <div>
   <button class="button" (click)="getTest()">Click</button>
 </div>
+<div>
+  <form #myFile="ngForm" (ngSubmit)="sendFileData(myFile)">
+    <label for="name">name</label>
+    <input type="text" id="name" name="name" ngModel>
+    <label for="size">size</label>
+    <input type="number" id="size" name="size" ngModel>
+    <button class="btn" type="submit">Send</button>
+  </form>
+
+</div>
+
+<br>
+<div>
+  <label class="btn">
+    <input type="file" (change)="selectFile($event)">
+  </label>
+</div>
+<div class="col-4">
+  <button class="btn btn-success" [disabled]="!selectedFiles" (click)="upload()">Upload File</button>
+</div>
+<div *ngIf ="currentFile" class="progress">
+<div
+  class="progress-bar progress-bar-info progress-bar-striped"
+  role="progressbar"
+  attr.aria-valuenow="{{progress}}"
+  aria-valuemin="0"
+  aria-valuemax="100"
+  [ngStyle]="{width: progress+'%'}">{{progress}}%</div>
+</div>
+
+<div *ngIf = "message" role="alert">{{message}}</div>
+<div *ngIf = "errorMessage" role="alert">{{errorMessage}}</div>
