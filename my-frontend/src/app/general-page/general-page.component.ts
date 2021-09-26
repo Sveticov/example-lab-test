@@ -15,6 +15,7 @@ export class GeneralPageComponent implements OnInit {
   message = ''
   errorMessage = ''
   progress = 0
+  visiNextPage = false
 
 
   constructor(private service: GeneralServiceService) {
@@ -63,5 +64,10 @@ export class GeneralPageComponent implements OnInit {
         });
     }
     this.selectedFiles = undefined
+  }
+
+
+  nextPage() {
+    this.visiNextPage = !this.visiNextPage
   }
 }

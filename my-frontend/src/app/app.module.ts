@@ -6,11 +6,13 @@ import { AppComponent } from './app.component';
 import { GeneralPageComponent } from './general-page/general-page.component';
 import {HttpClientModule} from "@angular/common/http";
 import {FormsModule} from "@angular/forms";
+import { SecondPageComponent } from './second-page/second-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    GeneralPageComponent
+    GeneralPageComponent,
+    SecondPageComponent
   ],
   imports: [
     BrowserModule,
