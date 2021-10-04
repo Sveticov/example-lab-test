@@ -1,0 +1,36 @@
+<div class="card">
+  <div class="card-body">
+    <h2 class="display-5">Select file from PLC</h2>
+
+    <div>
+      <label class="btn">
+        <input type="file" (change)="selectFilePlc($event)">
+      </label>
+    </div>
+    <div class="col-4">
+      <button class="btn btn-success" [disabled]="!selectedFilesPlc" (click)="uploadPlc()">Upload File</button>
+    </div>
+    <div *ngIf="currentFilePlc" class="progress">
+      <div
+        class="progress-bar progress-bar-info progress-bar-striped"
+        role="progressbar"
+        attr.aria-valuenow="{{progressPlc}}"
+        aria-valuemin="0"
+        aria-valuemax="100"
+        [ngStyle]="{width: progressPlc+'%'}">{{progressPlc}}%
+      </div>
+    </div>
+
+    <div *ngIf="messagePlc" role="alert">{{messagePlc}}</div>
+    <div *ngIf="errorMessagePlc" role="alert">{{errorMessagePlc}}</div>
+  </div>
+</div>
+
+<div *ngIf="progressPlc" class="card">
+  <div class="card-body">
+    <h2 class="display-5">Create Laboratory File</h2>
+<div class="col-4">
+  <button class="btn btn-info" (click)="makeTableLaboratoryReport()">Create Table</button>
+</div>
+  </div>
+</div>
